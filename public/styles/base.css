@@ -1,0 +1,16 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #cadaf2;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-custom {
+    border: none;
+    border-radius: 15px;
+}
