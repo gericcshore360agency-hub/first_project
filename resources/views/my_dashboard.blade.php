@@ -49,14 +49,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Additional dashboard content -->
-                <div class="mt-4">
-                    <h5>Quick Actions</h5>
-                    <a href="#" class="btn btn-primary me-2">New Post</a>
-                    <a href="#" class="btn btn-secondary">Manage Users</a>
-                </div>
-
             </div>
         </div>
 
