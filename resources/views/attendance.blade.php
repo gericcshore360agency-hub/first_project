@@ -29,7 +29,6 @@
                 <div id="calendar" class="text-center flex-grow-1"></div>
             </div>
         </div>
-
     </div>
 </div>
 

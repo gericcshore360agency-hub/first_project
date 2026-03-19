@@ -21,13 +21,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/attendance', function () {
-        return view('attendance');
-        })->name('show_attendance');
+        return view('attendance');})->name('show_attendance');
 
     //Attendance Related
     Route::get('/attendance/{date}', [AttendanceController::class, 'show'])->name('attendance.show');
 
-    
+    //User Management
+    Route::get('/show_users', [ProfileController::class, 'index'])->name('show_users');
+
+    Route::get('/edit_user/{id}', [ProfileController::class, 'edit_users'])->name('edit_user');
+
+    Route::get('/add_user', [ProfileController::class, 'add_users'])->name('add_user');
+
 });
 
 require __DIR__.'/auth.php';
