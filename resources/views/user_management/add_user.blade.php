@@ -34,15 +34,16 @@
 
                     <p class="text-muted mb-4 text-center">Create a new user account</p>
 
+
                     <!-- Form -->
-                    <form method="POST" action="{{ route('show_users') }}">
+                    <form method="POST" action="{{ route('create_users') }}">
 
                         @csrf
                         
                         <div class="row">
 
                             <!-- Name -->
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12 mb-3">
                                 <label class="form-label">Name</label>
                                 <input type="text" name="name" value="{{ old('name') }}" class="form-control">
                                 @error('name')
@@ -51,7 +52,7 @@
                             </div>
 
                             <!-- Email -->
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12 mb-3">
                                 <label class="form-label">Email</label>
                                 <input type="email" name="email" value="{{ old('email') }}" class="form-control">
                                 @error('email')
@@ -60,7 +61,7 @@
                             </div>
 
                             <!-- Password -->
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12 mb-3">
                                 <label class="form-label">Password</label>
                                 <input type="password" name="password" class="form-control">
                                 @error('password')
@@ -69,7 +70,7 @@
                             </div>
 
                             <!-- Confirm Password -->
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12 mb-3">
                                 <label class="form-label">Confirm Password</label>
                                 <input type="password" name="password_confirmation" class="form-control">
                             </div>

@@ -32,13 +32,8 @@
                 <p class="text-muted mb-0">Manage your system users</p>
             </div>
 
-            <!-- Optional Add Button -->
+            <!-- Add Button -->
             <a href="{{ route('add_user') }}" class="btn btn-primary">Add User</a>
-        </div>
-
-        <!-- Search (optional but nice) -->
-        <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Search users...">
         </div>
 
         <!-- Users Table -->
@@ -46,7 +41,7 @@
             <table class="table table-bordered align-middle text-center">
                 <thead class="table-light">
                     <tr>
-                        <th>#</th>
+                        <th>Number</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Roles</th>
@@ -65,9 +60,14 @@
                             <td>{{ $user->getAllPermissions()->pluck('name')->join(', ') }}</td>
                             <td>
                                 <a href="{{ route('edit_user', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="#" method="POST" class="d-inline">
+                                
+                                <form action="{{ route('delete_user', $user->id) }}" method="POST" class="d-inline" 
+                                    onsubmit= "return confirm('Are you sure you want to delete this user?')">
+
                                     @csrf
+
                                     @method('DELETE')
+                                    
                                     <button class="btn btn-sm btn-danger">Delete</button>
                                 </form>
                             </td>

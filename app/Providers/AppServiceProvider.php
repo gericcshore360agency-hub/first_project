@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Register QrCode facade alias
+        $this->app->alias('SimpleSoftware\QrCode\Facades\QrCode', 'QrCode');
     }
 }

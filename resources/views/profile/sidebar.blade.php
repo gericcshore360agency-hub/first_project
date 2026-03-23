@@ -17,14 +17,19 @@
                 Show Attendance
             </a>
 
-            <a href="#" class="menu-link">
+            <a href="{{ route('role_management') }}" class="menu-link">
                 <img src="{{ asset('my_resources/settings.svg') }}" alt="Settings" class="menu-icon">
-                Settings
+                Role Settings
             </a>
 
             <a href="{{ route('show_users') }}" class="menu-link">
                 <img src="{{ asset('my_resources/users.svg') }}" alt="Users" class="menu-icon">
                 Users
+            </a>
+
+            <a href="{{ route('history') }}" class="menu-link">
+                <img src="" alt="History" class="menu-icon">
+                History
             </a>
 
             <form method="POST" action="{{ route('logout') }}">

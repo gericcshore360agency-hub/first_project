@@ -31,7 +31,8 @@
                 </div>
 
                 <!-- Form -->
-                <form method="POST" action="#">
+                <form method="POST" action="{{ route('update_user', $user->id) }}">
+
                     @csrf
                     
                     @method('PUT')
@@ -39,7 +40,7 @@
                     <div class="row">
 
                         <!-- Name -->
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <label class="form-label">Name</label>
                             <input type="text" name="name" 
                                 value="{{ old('name', $user->name) }}" 
@@ -50,7 +51,7 @@
                         </div>
 
                         <!-- Email -->
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <label class="form-label">Email</label>
                             <input type="email" name="email" 
                                 value="{{ old('email', $user->email) }}" 
@@ -61,7 +62,7 @@
                         </div>
 
                         <!-- Password (optional) -->
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <label class="form-label">New Password</label>
                             <input type="password" name="password" class="form-control">
                             <small class="text-muted">Leave blank if unchanged</small>
@@ -71,7 +72,7 @@
                         </div>
 
                         <!-- Confirm Password -->
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <label class="form-label">Confirm Password</label>
                             <input type="password" name="password_confirmation" class="form-control">
                         </div>
