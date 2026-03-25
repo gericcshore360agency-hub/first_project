@@ -55,7 +55,7 @@
                             <tbody>
                                 @forelse($activities as $index => $activity)
                                     <tr>
-                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ $activities->firstItem() + $index }}</td>
                                         <td>{{ $activity->causer?->name ?? 'System' }}</td>
                                         <td>
                                             <span class="badge 
@@ -79,6 +79,11 @@
                             </tbody>
                         </table>
                     </div>
+
+                    {{-- Pagination links --}}
+                    <div class="mt-3">
+                        {{ $activities->appends(['tab' => 'activity'])->links() }}
+                    </div>
                 </div>
 
                 {{-- Deletes Tab --}}
@@ -86,7 +91,7 @@
 
                     {{-- Deleted Users --}}
                     <h5 class="mb-3">Deleted Users</h5>
-                    <div class="table-responsive mb-5">
+                    <div class="table-responsive">
                         <table class="table table-bordered align-middle text-center">
                             <thead class="table-light">
                                 <tr>
@@ -133,10 +138,13 @@
 function showTab(tab) {
     document.getElementById('tabActivity').style.display = tab === 'activity' ? 'block' : 'none';
     document.getElementById('tabDeletes').style.display  = tab === 'deletes'  ? 'block' : 'none';
-
     document.getElementById('btnActivity').className = tab === 'activity' ? 'btn btn-primary' : 'btn btn-outline-secondary';
     document.getElementById('btnDeletes').className  = tab === 'deletes'  ? 'btn btn-primary' : 'btn btn-outline-secondary';
 }
+
+const urlParams = new URLSearchParams(window.location.search);
+const activeTab = urlParams.get('tab') || 'activity';
+showTab(activeTab);
 </script>
 </body>
 </html>

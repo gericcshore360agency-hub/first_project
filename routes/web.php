@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn() => view('welcome'));
 
-Route::get('/dashboard', fn() => view('my_dashboard'))
+Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+/*
+|--------------------------------------------------------------------------
+| Parent Route
+|--------------------------------------------------------------------------
+*/
+
+Route::post('/load_teacher', [DashboardController::class,'load_teacher'])->name('load_teacher');
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +67,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/create_role', [RoleController::class, 'create_role'])->name('create_role');
     Route::put('/roles/{id}', [RoleController::class, 'edit_role'])->name('edit_role');
     Route::delete('/roles/{id}', [RoleController::class, 'destroy'])->name('delete_role');
+
+    // Student Management
+    Route::get('/view_students',[StudentController::class, 'view_students'])->name('view_students');
+    Route::post('/add_student', [StudentController::class,'store_students'])->name('add_student');
+    Route::put('/edit_student/{id}',[StudentController::class,'edit_student'])->name('update_student');
+    Route::delete('/delete_student/{id}', [StudentController::class, 'delete_student'])->name('delete_student');
 
     // History
     Route::get('/history', [HistoryController::class, 'index'])->name('history');

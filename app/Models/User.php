@@ -26,6 +26,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function students()
+    {
+    return $this->hasMany(Student::class, 'user_id');
+    }
+
     protected function casts(): array
     {
         return [

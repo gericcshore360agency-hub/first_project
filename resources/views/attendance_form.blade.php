@@ -21,6 +21,7 @@
     <form method="POST" action="{{ route('attendance.store') }}">
         
         @csrf
+        
         <input type="hidden" name="date" value="{{ $date }}">
 
         <div class="mb-3">

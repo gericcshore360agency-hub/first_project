@@ -8,6 +8,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\Attendance;
+use App\Models\Student;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -16,7 +18,22 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+         $recentDays = collect([2, 1, 0])->map(function ($daysAgo) {
+            $date = now()->subDays($daysAgo)->toDateString();
+            return [
+                'date'  => $date,
+                'count' => Attendance::whereDate('date', $date)->count(),
+            ];
+        });
+
+        $totalDays = Attendance::distinct('date')->count('date');
+
+        $students = Student::where('user_id', Auth::id())
+                           ->withCount('attendances')
+                           ->get();
+
+
+        return view('auth.login',compact('recentDays', 'students', 'totalDays'));
     }
 
     /**
