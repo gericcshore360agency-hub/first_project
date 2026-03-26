@@ -43,8 +43,13 @@ Route::post('/attendance', [AttendanceController::class, 'store'])->name('attend
 |--------------------------------------------------------------------------
 */
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
 
+    //Practice
+    Route::get('/practice', fn() => view('practice'))->name('practice');
+
+    Route::get('/fetching_practice', [DashboardController::class, 'fetching_practice'])->name('fetching_practice');
+    
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

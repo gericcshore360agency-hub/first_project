@@ -58,6 +58,14 @@
             </a>
 @endrole
 
+
+@role('dev')
+            <a href="{{ route('practice') }}" class="menu-link">
+                <img src="{{ asset('my_resources/history.svg') }}" alt="History" class="menu-icon">
+                History
+            </a>
+@endrole
+
             <form method="POST" action="{{ route('logout') }}">
 
                 @csrf

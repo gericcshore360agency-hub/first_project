@@ -10,6 +10,13 @@ body {
     background-position: center;
 }
 
+/* Switch to solid color on mobile */
+@media (max-width: 768px) {
+    body {
+        background: #4c74b1;
+    }
+}
+
 .card-custom {
     border: none;
     border-radius: 15px;

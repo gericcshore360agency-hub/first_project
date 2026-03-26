@@ -1,7 +1,15 @@
+html, body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    min-height: 100%;
     font-family: 'Poppins', sans-serif;
     background-color: #cadaf2;
 }
+
 
 .sidebar {
     position: fixed;
@@ -64,11 +72,70 @@ h3 {
 .main-content {
     padding: 2rem;
     margin-left: calc(100% / 12 * 2);
-    height: 100vh;
     overflow-y: auto;
 }
 
 .card-custom {
     border-radius: 15px;
     border: none;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .main-content {
+        padding: 1.25rem;
+        margin-left: 16.7%;
+    }
+
+    .card-custom {
+        padding: 1rem;
+    }
+
+    .table-responsive {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 60px;
+        padding: 1rem;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        min-height: auto;
+    }
+
+    .main-content .card,
+    .main-content > div:not(.card) {
+        min-height: auto;
+    }
+
+    .sidebar {
+        width: 60px;
+        padding: 10px 5px !important;
+    }
+
+    .sidebar h1 {
+        display: none;
+    }
+
+    .menu-link {
+        font-size: 0;
+        padding: 8px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .sidebar form button {
+        font-size: 0;
+        padding: 8px;
+    }
+
+    .btn.w-100 {
+        font-size: 1rem;
+    }
 }

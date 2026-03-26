@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ asset('my_resources/logo.png') }}">
     <title>Select Teacher</title>
 
     <!-- Bootstrap -->
@@ -20,15 +21,11 @@
             <div class="col-md-5 d-flex align-items-center justify-content-center">
 
                 <div class="card shadow-lg card-custom p-5 text-center w-100">
+                    <h2 class="mb-3">Parent Portal</h2>
 
-                    <h2 class="mb-3">Find Your Teacher</h2>
-
-                    <p class="text-muted mb-4">
-                        Enter your teacher's name to continue
-                    </p>
+                    <p class="text-muted mb-4">Enter your teacher and student name to continue</p>
 
                     <form method="POST" action="{{ route('load_teacher') }}">
-
                         @csrf
 
                         <div class="mb-3 text-start">
@@ -39,6 +36,7 @@
                                 class="form-control @error('teacher_name') is-invalid @enderror"
                                 name="teacher_name"
                                 value="{{ old('teacher_name') }}"
+                                placeholder="e.g. Juan dela Cruz"
                                 required
                                 autofocus
                             >
@@ -47,7 +45,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3 text-start">
+                        <div class="mb-4 text-start">
                             <label for="student_name" class="form-label">Student Name</label>
                             <input
                                 id="student_name"
@@ -55,16 +53,16 @@
                                 class="form-control @error('student_name') is-invalid @enderror"
                                 name="student_name"
                                 value="{{ old('student_name') }}"
+                                placeholder="e.g. Maria Santos"
                                 required
-                                autofocus
                             >
                             @error('student_name')
                                 <div class="text-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        <div class="d-grid mt-4">
-                            <button type="submit" class="btn btn-primary">Continue</button>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">View Dashboard</button>
                         </div>
 
                     </form>
