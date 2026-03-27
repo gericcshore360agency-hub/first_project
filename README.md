@@ -27,8 +27,8 @@ Web-based attendance tracking for teachers that can also generate reports for pa
 
 # Installation
 
-### Requirements
-- PHP >= 8.2
+## Requirements
+- PHP: 8.2 - 8.3
 - Composer
 - Node.js & NPM
 - MySQL
@@ -37,24 +37,34 @@ Web-based attendance tracking for teachers that can also generate reports for pa
 
 **1. Clone the repository**
 ```bash
+
 git clone https://github.com/gericcshore360agency-hub/first_project
+
 cd first_project
+
 ```
 
 **2. Install dependencies**
 ```bash
+
 composer install
+
 npm install && npm run build
+
 ```
 
 **3. Set up environment**
 ```bash
+
 cp .env.example .env
+
 php artisan key:generate
+
 ```
 
 **4. Configure your `.env`**
 ```env
+
 DB_DATABASE= your_database
 DB_USERNAME= your_username
 DB_PASSWORD= your_password
@@ -70,12 +80,16 @@ MAIL_FROM_NAME="Attendance System"
 
 **5. Run migrations and seeders**
 ```bash
+
 php artisan migrate
+
 php artisan db:seed
+
 ```
 
 **6. Set up roles and permission**
 ```bash
+
 php artisan tinker
 
 use Spatie\Permission\Models\Role;
@@ -89,18 +103,23 @@ $parent = Role::create(['name' => 'parent']);
 use Spatie\Permission\Models\Permission;
 
 // Create permissions
+
+Permission::create(['name' => 'everything']);
 Permission::create(['name' => 'manage students']);
 Permission::create(['name' => 'view attendance']);
 Permission::create(['name' => 'manage users']);
 
-// Assign permissions
+// Assign permissions (just examples)
+
 $dev->givePermissionTo(['everything']);
 $teacher->givePermissionTo(['manage students', 'view attendance']);
 $parent->givePermissionTo(['view attendance']);
 
 **7. Start the server**
 ```bash
+
 php artisan serve
+
 ```
 
 ---
@@ -129,4 +148,38 @@ laravel/breeze | ^2.0 | Auth scaffolding
 spatie/laravel-permission | ^6.0 | Roles & permissions 
 spatie/laravel-activitylog | ^4.0 | Activity logging 
 simplesoftwareio/simple-qrcode | ^4.0 | QR code generation 
+
+
+##  Screenshots
+
+### Welcome Page:
+![Welcome](screenshots/welcome.png)
+
+### Login Page:
+![Login](screenshots/login.png)
+
+### Register Page:
+![Register](screenshots/register.png)
+
+### Dashboard:
+![Dashboard](screenshots/dashboard.png)
+
+### Edit Profile:
+![Edit Profile](screenshots/edit_p.png)
+
+### View Students:
+![Edit Profile](screenshots/edit_p.png)
+
+### Show Attendance:
+![Show Attendance](screenshots/show_at.png)
+
+### Role Settings:
+![Role Settings](screenshots/edit_r.png)
+
+### Users:
+![Users](screenshots/users.png)
+
+### History:
+![History](screenshots/history.png)
+
 

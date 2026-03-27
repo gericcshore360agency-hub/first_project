@@ -57,7 +57,7 @@ public function store(Request $request)
 }
 
 public function show($date)
-    {
+{
         $records = Attendance::whereDate('date', $date)->whereHas('student', 
         function($query){
             $query->where('user_id', Auth::id());
@@ -68,14 +68,14 @@ public function show($date)
         $qrCode  = QrCode::size(250)->generate($scanUrl);
 
         return view('view_attendance', compact('date', 'records', 'qrCode','scanUrl'));
-    }
+}
 
 public function attendance_form(Request $request)
-    {
+{
         $date = $request->query('date');
 
         return view('attendance_form', compact('date'));
-    }
+}
 
 public function edit(Attendance $attendance)
     {

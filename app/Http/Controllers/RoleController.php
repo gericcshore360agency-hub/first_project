@@ -7,8 +7,7 @@ use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
-    //
-
+    
 public function index(){
 
     $roles       = Role::with('permissions')->get();

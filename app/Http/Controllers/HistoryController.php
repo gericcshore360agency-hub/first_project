@@ -9,7 +9,7 @@ use Spatie\Permission\Models\Role;
 
 class HistoryController extends Controller
 {
-    public function index()
+public function index()
     {
         $activities = Activity::with('causer')->latest()->paginate(15);
 
@@ -18,7 +18,7 @@ class HistoryController extends Controller
         return view('history', compact('activities', 'deletedUsers'));
     }
 
-    public function restoreUser($id)
+public function restoreUser($id)
     {
         $user = User::onlyTrashed()->findOrFail($id);
 

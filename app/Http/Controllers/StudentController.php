@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function view_students()
+public function view_students()
     {
         $students = Student::where('user_id', auth()->user()->id)->get();
 
         return view("student_management.view_students", compact("students"));
     }
 
-    public function store_students(Request $request)
+public function store_students(Request $request)
     {   
         $request->validate([
             'first_name' => 'required',
@@ -33,7 +33,7 @@ class StudentController extends Controller
         return redirect()->route('view_students')->with('success', 'Student added successfully.');
     }
 
-    public function edit_student(Request $request, $id){
+public function edit_student(Request $request, $id){
 
         $student = Student::where('user_id', auth()->id())->findOrFail($id);
 
@@ -52,7 +52,7 @@ class StudentController extends Controller
         return redirect()->route('view_students')->with('success','Editing Success');
     }
 
-    public function delete_student(Request $request, $id){
+public function delete_student(Request $request, $id){
 
             $student = Student::where('user_id', auth()->id())->findOrFail($id);
 

@@ -62,7 +62,7 @@
 @role('dev')
             <a href="{{ route('practice') }}" class="menu-link">
                 <img src="{{ asset('my_resources/history.svg') }}" alt="History" class="menu-icon">
-                History
+                Query Practice
             </a>
 @endrole
 

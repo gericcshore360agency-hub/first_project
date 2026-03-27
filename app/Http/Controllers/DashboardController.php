@@ -43,14 +43,14 @@ public function index(){
             ];
         });
 
-        // Total unique days scoped to logged-in user
+        // Unique days tied to the user/teacher
         $totalDays = Attendance::distinct('date')
             ->whereHas('student', function($query) {
                 $query->where('user_id', Auth::id());
             })
             ->count('date');
 
-        // Get students with their attendance counts
+        // Get students attendance counts
         $students = Student::where('user_id', Auth::id())
             ->withCount('attendances')
             ->get()
@@ -74,7 +74,7 @@ public function index(){
     }
   }
 
-    public function load_teacher(Request $request)
+public function load_teacher(Request $request)
     {
         $request->validate([
             'teacher_name' => 'required|string',
