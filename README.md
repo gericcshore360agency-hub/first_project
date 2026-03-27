@@ -126,9 +126,11 @@ php artisan serve
 
 ## Roles
 
-**Dev** | Full system access, user management, history 
-**Teacher** | Dashboard, students, attendance, calendar 
-**Parent** | View assigned teacher's student attendance 
+| Role | Access |
+|---|---|
+| **Dev** | Full system access, user management, history |
+| **Teacher** | Dashboard, students, attendance, calendar |
+| **Parent** | View assigned teacher's student attendance |
 
 ---
 

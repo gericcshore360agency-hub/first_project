@@ -6,14 +6,11 @@
     <link rel="icon" type="image/png" href="{{ asset('my_resources/logo.png') }}">
     <title>Dashboard - Add User</title>
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Poppins Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('/styles/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/dashboard.css') }}">
 </head>
 <body>
 
@@ -35,7 +32,6 @@
 
                     <p class="text-muted mb-4 text-center">Create a new user account</p>
 
-
                     <!-- Form -->
                     <form method="POST" action="{{ route('create_users') }}">
 
@@ -47,6 +43,7 @@
                             <div class="col-md-12 mb-3">
                                 <label class="form-label">Name</label>
                                 <input type="text" name="name" value="{{ old('name') }}" class="form-control">
+
                                 @error('name')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
@@ -56,6 +53,7 @@
                             <div class="col-md-12 mb-3">
                                 <label class="form-label">Email</label>
                                 <input type="email" name="email" value="{{ old('email') }}" class="form-control">
+
                                 @error('email')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
@@ -65,6 +63,7 @@
                             <div class="col-md-12 mb-3">
                                 <label class="form-label">Password</label>
                                 <input type="password" name="password" class="form-control">
+
                                 @error('password')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
